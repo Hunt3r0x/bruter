@@ -1,4 +1,4 @@
-# Fuzzing Tool
+# BRUTER Tool
 
 The `bruter.py` tool is a command-line utility for replacing the string `FUZZING` in a URL with lines from a file. The resulting URLs can be written to an output file or to standard output.
 
@@ -33,5 +33,7 @@ To use the `bruter.py` tool, run the script with the `-f` and `-u` options to sp
 
 Examples:
 
+#### Replace 'FUZZING' with lines from 'payloads.txt' and write the resulting URLs to 'output.txt'
+
 ```
-# Replace 'FUZZING' with lines from 'payloads.txt' and write the resulting URLs to 'output.txt'
+python3 bruter.py -f ~/mywordlists/subdomains.txt -u https://test-FUZZING.hackerone.com
