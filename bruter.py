@@ -6,7 +6,6 @@ import sys
 
 
 def main():
-    # Parse command line arguments
     parser = argparse.ArgumentParser(
         description="Fuzz a URL with lines from a file")
     parser.add_argument('-f', '--file', required=True,
@@ -17,16 +16,13 @@ def main():
                         help="Output file to write the resulting URLs")
     args = parser.parse_args()
 
-    # Check that the file exists
     if not os.path.isfile(args.file):
         print(f"Error: file '{args.file}' does not exist")
         return
 
-    # Set the output file to stdout if it is not provided
     if args.output is None:
         output_file = sys.stdout
     else:
-        # Check that the output file can be written
         try:
             output_file = open(args.output, 'w')
         except OSError as e:
@@ -34,7 +30,6 @@ def main():
                 f"Error: could not write to output file '{args.output}': {e}")
             return
 
-    # Read the lines from the file and replace 'FUZZING' with each line
     try:
         with open(args.file, 'r') as f:
             lines = f.readlines()
@@ -45,17 +40,15 @@ def main():
     except KeyboardInterrupt:
         print("Program stopped by user")
     finally:
-        # Close the output file if it's an actual file
         if args.output is not None:
             output_file.close()
             print(f"Wrote results to '{args.output}'")
         else:
-            # Print the results to stdout
             if output_file != sys.stdout:
                 output_file.close()
             else:
-                output_file.flush()  # Flush the buffer to ensure all data is written to stdout
-            sys.stdout.flush()  # Flush the buffer to ensure all data is written to stdout
+                output_file.flush()
+            sys.stdout.flush()
 
 
 if __name__ == '__main__':
