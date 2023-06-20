@@ -36,4 +36,4 @@ Examples:
 #### Replace 'FUZZING' with lines from 'payloads.txt' and write the resulting URLs to 'output.txt'
 
 ```
-python3 bruter.py -f ~/mywordlists/subdomains.txt -u https://test-FUZZING.hackerone.com
+python3 bruter.py -f ~/mywordlists/payloads.txt -u https://test-FUZZING.hackerone.com -o output.txt
