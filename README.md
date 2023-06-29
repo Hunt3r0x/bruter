@@ -9,7 +9,7 @@ To use the `bruter.py` tool, you need to have Python 3 installed on your system.
 Once you have installed Python 3, you can download the `bruter.py` script from the GitHub repository:
 
 ```
-$ git clone https://github.com/Hunt3r0x/bruter.git
+git clone https://github.com/Hunt3r0x/bruter.git
 ```
 
 ## Usage
